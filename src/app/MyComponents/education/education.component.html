@@ -1,0 +1,16 @@
+<div class="main-con" style="background-color: #023047">
+  <div class="container shadow text-center justify-content-center align-items-center">
+    <div *ngFor="let edu of educations" class="card data" style="margin: 2vw 10vw">
+      <div class="card-header">
+        <h1 style="font-family: Playwite, cursive">{{edu.level}}</h1>
+      </div>
+      <div class="card-body">
+        <p class="card-title">{{edu.degree}}</p>
+        <p class="card-text">Stream: {{edu.stream}}</p>
+        <p class="card-text">Year of Passing: {{edu.yearOfPassing}}</p>
+        <p class="card-text">CGPA/Percentage: {{edu.cgpaOrPercentage}}</p>
+        <p class="card-text">Institute: {{edu.institute}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+.name{
+  font-family: "Baskerville Old Face", cursive;
+  font-size: 30px;
+}
+.name{
+  color: #ffc300;
+  font-style: normal;
+  font-weight: 700;
+  font-optical-sizing: auto;
+}
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: #ff4c00;
+}
+.h-btn{
+  color: #ffc300;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 700;
+  font-optical-sizing: auto;
+  font-family: Playwite, cursive ;
+  font-size: 20px;
+  user-select: none;
+}
+.acti{
+  color: #ff4c00;
+}
+.h-btn:hover{
+  color: #f7e1d7;
+}
+.h-btn:active{
+  color: #ff4c00;
+}
+@media (max-width: 480px) {
+  .name{
+    font-size: 20px;
+  }
+  .nav-link{
+    font-size: 15px;
+  }
+}
