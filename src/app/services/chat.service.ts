@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Client, IMessage} from "@stomp/stompjs";
 import SockJS from "sockjs-client";
-import {environment} from "../../Environment";
 import {ChatMessage} from "../models/ChatMessage";
 import {BehaviorSubject} from "rxjs";
 import {SendMessageRequest} from "../models/SendMessageRequest";
+import {environment} from "../../environments/environment";
 
 
 @Injectable({
