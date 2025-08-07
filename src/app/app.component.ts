@@ -17,6 +17,13 @@ import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog
 import {ChatComponent} from "./MyComponents/modals/chat/chat.component";
 import {InfoPromptComponent} from "./MyComponents/modals/info-prompt/info-prompt.component";
 import {ChatService} from "./services/chat.service";
+import {
+  staticContacts,
+  staticEducations,
+  staticExperiences,
+  staticProfile,
+  staticProjects
+} from "../assets/static/StaticData";
 
 @Component({
   selector: 'app-root',
@@ -52,57 +59,65 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.dataService.getProfile().subscribe({
-      next: value => {
-        this.profile = value.body;
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
+    // use static data
 
-    this.dataService.getEducation().subscribe({
-      next: response => {
-        this.educations = response.body;
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
+    this.profile = staticProfile;
+    this.educations = staticEducations;
+    this.projects = staticProjects;
+    this.contact = staticContacts;
+    this.experiences = staticExperiences;
 
-    this.dataService.getContacts().subscribe({
-      next: response => {
-        this.contact = response.body;
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
-
-    this.dataService.getProjects().subscribe({
-      next: response => {
-        this.projects = response.body;
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
-
-    this.dataService.getExperience().subscribe({
-      next: response => {
-        this.experiences = response.body;
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
-
-    this.chatService.userId$.subscribe(id => {
-      this.userId = id;
-    });
-    this.chatService.chatId$.subscribe(id => {
-      this.chatId = id;
-    })
+    // this.dataService.getProfile().subscribe({
+    //   next: value => {
+    //     this.profile = value.body;
+    //   },
+    //   error: err => {
+    //     console.log(err);
+    //   }
+    // });
+    //
+    // this.dataService.getEducation().subscribe({
+    //   next: response => {
+    //     this.educations = response.body;
+    //   },
+    //   error: err => {
+    //     console.log(err);
+    //   }
+    // });
+    //
+    // this.dataService.getContacts().subscribe({
+    //   next: response => {
+    //     this.contact = response.body;
+    //   },
+    //   error: err => {
+    //     console.log(err);
+    //   }
+    // });
+    //
+    // this.dataService.getProjects().subscribe({
+    //   next: response => {
+    //     this.projects = response.body;
+    //   },
+    //   error: err => {
+    //     console.log(err);
+    //   }
+    // });
+    //
+    // this.dataService.getExperience().subscribe({
+    //   next: response => {
+    //     this.experiences = response.body;
+    //   },
+    //   error: err => {
+    //     console.log(err);
+    //   }
+    // });
+    //
+    // this.chatService.userId$.subscribe(id => {
+    //   this.userId = id;
+    // });
+    // this.chatService.chatId$.subscribe(id => {
+    //   this.chatId = id;
+    // })
   }
 
   startChat() {
