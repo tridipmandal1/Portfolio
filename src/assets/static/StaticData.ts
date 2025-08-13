@@ -163,10 +163,28 @@ export const staticExperiences: Experience [] = [
     company: 'Floydee Infotech Private Limited',
     position: 'Software Developer Intern',
     duration: '5 Months',
-    outcomes: '',
+    outcomes: 'During my internship as a Software Engineer Intern from July 2024 to ' +
+      'December 2024, I successfully contributed to the development and enhancement of ' +
+      'production-grade applications, including Naree and Maxjobs. Working extensively ' +
+      'with Spring Boot and Angular, I was able to deliver robust backend services and ' +
+      'intuitive frontend interfaces that directly impacted end-users. ' +
+      'My efforts resulted in improved application performance, seamless ' +
+      'feature integration, and timely project deliveries. This experience ' +
+      'strengthened my ability to work in a professional software development ' +
+      'environment, collaborate effectively with cross-functional teams,' +
+      ' and produce high-quality, maintainable code for live systems.',
     technologies: 'Spring boot, Angular',
-    responsibilities: '',
-    location: '',
+    responsibilities: 'As part of my role, I was responsible for designing, ' +
+      'developing, and testing features across both backend and frontend layers of ' +
+      'the applications. I worked on implementing RESTful APIs in Spring Boot, ' +
+      'integrating them with Angular-based user interfaces, and ensuring smooth ' +
+      'communication between services. My tasks also included debugging production issues,' +
+      ' optimizing database queries, and contributing to code reviews to maintain project ' +
+      'quality standards. Additionally, I collaborated closely with senior developers, ' +
+      'product managers, and QA engineers to gather requirements, translate them into' +
+      ' technical solutions,' +
+      ' and ensure successful deployment of updates to the production environment.',
+    location: 'Kolkata',
     files: []
   },
   {
