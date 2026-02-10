@@ -1,44 +1,281 @@
-#download-button, #view-button {
-  font-family: Kalam, cursive;
-  font-size: 20px;
-  padding: 10px 10px;
-  color: #fff;
-  background-color: #219ebc;
+.main-con {
+  min-height: 100vh;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-container {
+  background: linear-gradient(135deg, #0f4c5c 0%, #219ebc 100%);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem auto;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-section {
+  animation: slideInLeft 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.greeting-title {
+  font-family: "Playwrite AU QLD", "Raleway", sans-serif;
+  color: #fdf0d5;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.intro-text {
+  font-family: "Kalam", cursive;
+  color: #fdf0d5;
+  font-size: clamp(16px, 2.5vw, 20px);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.image-section {
+  animation: slideInRight 1s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.profile-image {
+  border-radius: 50%;
+  border: 4px solid #8ecae6;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  filter: brightness(1.1);
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-color: #fdf0d5;
+}
+
+.skills-section {
+  margin-top: 3rem;
+  animation: fadeInUp 1s ease-out 0.5s both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-title {
+  font-family: "Playwrite AU QLD", "Raleway", sans-serif;
+  color: #fdf0d5;
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #8ecae6, #219ebc);
+  border-radius: 2px;
+}
+
+.skills-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 1rem;
+}
+
+.skills-text {
+  font-family: "Kalam", cursive;
+  font-size: clamp(16px, 2.5vw, 20px);
+  line-height: 2;
+  color: #fdf0d5;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.resume-section {
+  margin-top: 3rem;
+  animation: fadeInUp 1s ease-out 0.7s both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.resume-title {
+  font-family: "Playwrite AU QLD", "Raleway", sans-serif;
+  color: #fdf0d5;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cv-buttons-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.cv-button {
+  font-family: "Kalam", cursive;
+  font-size: clamp(16px, 2.5vw, 20px);
+  padding: 12px 24px;
+  color: #023047;
+  background: linear-gradient(135deg, #8ecae6 0%, #219ebc 100%);
   border: none;
   cursor: pointer;
-  transition: all 0.5s;
+  transition: all 0.3s ease;
   outline: none;
-  border-radius: 12px;
-  animation: pulse 2s infinite;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(33, 158, 188, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-width: 140px;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
+.cv-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.cv-button:hover::before {
+  left: 100%;
+}
+
+.cv-button:hover {
+  background: linear-gradient(135deg, #219ebc 0%, #0f4c5c 100%);
+  color: #fdf0d5;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(33, 158, 188, 0.4);
+}
+
+.cv-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(33, 158, 188, 0.3);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
   }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-#download-button:hover {
-  background-color: #3e8e41;
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-#download-button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-#view-button:hover {
-  background-color: #3e8e41;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-#view-button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+@media (max-width: 768px) {
+  .main-con {
+    padding: 1rem 0;
+  }
+
+  .home-container {
+    padding: 2rem 1rem;
+    margin: 1rem;
+    min-height: auto;
+  }
+
+  .cv-buttons-container {
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .cv-button {
+    padding: 10px 20px;
+    min-width: 120px;
+  }
+
+  .skills-container {
+    margin: 0 0.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cv-button {
+    font-size: 16px;
+    padding: 8px 16px;
+    min-width: 100px;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .home-container {
+    padding: 1.5rem 0.5rem;
+  }
 }

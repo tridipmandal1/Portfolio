@@ -1,8 +1,219 @@
-.data{
-  font-family: Playwite, cursive;
-  font-size: 20px;
-  color: #ffba08;
+.main-con {
+  background: linear-gradient(135deg, #023047 0%, #024a5c 100%);
+  min-height: 100vh;
+  padding: 4rem 0;
+  font-family: "Playwrite AU QLD", "Raleway", sans-serif;
 }
-.card{
-  background-color: #03071e;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: #fdf0d5; /* Changed from golden yellow to cream to match experience component */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #0f4c5c, #219ebc); /* Changed gradient from golden to teal colors */
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.education-card {
+  background: linear-gradient(145deg, #0f4c5c, #1a5f7a); /* Changed background gradient from dark purple to teal theme */
+  border: 1px solid rgba(15, 76, 92, 0.3); /* Changed border color from golden to teal */
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 1px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  position: relative;
+  overflow: hidden;
+}
+
+.education-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0f4c5c, #219ebc, #0f4c5c); /* Changed top border gradient from golden to teal */
+  border-radius: 20px 20px 0 0;
+}
+
+.education-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4);
+  border-color: rgba(15, 76, 92, 0.5); /* Changed hover border color to teal */
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-header-section {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(15, 76, 92, 0.3); /* Changed border color from golden to teal */
+  padding-bottom: 1rem;
+}
+
+.level-badge {
+  margin-bottom: 0.5rem;
+}
+
+.level-title {
+  font-size: 1.5rem;
+  color: #fdf0d5; /* Changed from golden yellow to cream */
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.degree-info {
+  display: flex;
+  align-items: center;
+}
+
+.degree-name {
+  font-size: 1.1rem;
+  color: #8ecae6; /* Changed from golden orange to light teal */
+  font-weight: 500;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.info-label {
+  font-size: 0.85rem;
+  color: #8ecae6; /* Changed from golden orange to light teal */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 1rem;
+  color: #fdf0d5; /* Changed from golden yellow to cream */
+  font-weight: 400;
+}
+
+.grade-highlight {
+  background: linear-gradient(135deg, #219ebc, #8ecae6); /* Changed gradient from golden to teal theme */
+  color: #023047; /* Changed text color to dark for better contrast */
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.grade-highlight:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.section-label {
+  font-size: 0.9rem;
+  color: #8ecae6; /* Changed from golden orange to light teal */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.institute-name {
+  color: #fdf0d5; /* Changed from golden yellow to cream */
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-con {
+    padding: 2rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .education-card {
+    padding: 1.5rem;
+  }
+
+  .level-title {
+    font-size: 1.3rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .education-card {
+    padding: 1rem;
+  }
+
+  .grade-highlight {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
 }

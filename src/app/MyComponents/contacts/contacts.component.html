@@ -1,48 +1,94 @@
 <div class="main-con" style="background-color: #023047">
   <div class="container shadow-lg text-center justify-content-center align-items-center">
-    <div class="row justify-content-center">
-      <div class="card h-50 w-75 mt-5 " style="background-color: #ffa62b; color: #ffffff">
-        <div class="card-body cb">
-            <p class="card-text cd"><strong>Email: </strong>{{contacts.email}}
-              <a  href="mailto:{{contacts.email}}"> <i class="bi bi-envelope-at"></i></a></p>
+    <div class="section-header">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="row justify-content-center contacts-grid">
+      <div class="contact-card email-card">
+        <div class="card-icon">
+          <i class="bi bi-envelope-at"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="contact-label">Email</h3>
+          <p class="contact-value">{{contacts.email}}</p>
+          <a href="mailto:{{contacts.email}}" class="contact-link">
+            <span>Send an Email</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </div>
 
-      <div class="card h-50 w-75 mt-5" style="background-color: #ffa62b; color: #ffffff">
-        <div class="card-body cb" >
-          <p class="card-text"><strong>LinkedIn: </strong>Tridip Mandal
-            <a  [href]="contacts.linkedin" target="_blank"> <i class="bi bi-linkedin"></i></a></p>
+      <div class="contact-card linkedin-card">
+        <div class="card-icon">
+          <i class="bi bi-linkedin"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="contact-label">LinkedIn</h3>
+          <p class="contact-value">Tridip Mandal</p>
+          <a [href]="contacts.linkedin" target="_blank" class="contact-link">
+            <span>Connect</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </div>
 
-      <div class="card h-50 w-75 mt-5" style="background-color: #ffa62b; color: #ffffff">
-        <div class="card-body cb">
-          <p class="card-text"><strong>Github: </strong>tridipmandal1
-            <a  [href]="contacts.github" target="_blank"> <i class="bi bi-github"></i></a></p>
+      <div class="contact-card github-card">
+        <div class="card-icon">
+          <i class="bi bi-github"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="contact-label">GitHub</h3>
+          <p class="contact-value">tridipmandal1</p>
+          <a [href]="contacts.github" target="_blank" class="contact-link">
+            <span>View Profile</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </div>
 
-      <div class="card h-50 w-75 mt-5" style="background-color: #ffa62b; color: #ffffff">
-        <div class="card-body cb">
-          <p class="card-text"><strong>Stack Overflow </strong>
-            <a [href]="contacts.stackoverflow" target="_blank"> <i class="bi bi-stack-overflow"></i></a></p>
+      <div class="contact-card stackoverflow-card">
+        <div class="card-icon">
+          <i class="bi bi-stack-overflow"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="contact-label">Stack Overflow</h3>
+          <p class="contact-value">View Profile</p>
+          <a [href]="contacts.stackoverflow" target="_blank" class="contact-link">
+            <span>Visit</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </div>
 
-      <div class="card h-50 w-75 mt-5" style="background-color: #ffa62b; color: #ffffff">
-        <div class="card-body cb">
-          <p class="card-text"><strong>Leetcode </strong>
-            <a  [href]="contacts.leetcode" target="_blank"> <i class="bi bi-code-square"></i></a></p>
+      <div class="contact-card leetcode-card">
+        <div class="card-icon">
+          <i class="bi bi-code-square"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="contact-label">LeetCode</h3>
+          <p class="contact-value">Coding Profile</p>
+          <a [href]="contacts.leetcode" target="_blank" class="contact-link">
+            <span>View Solutions</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </div>
 
-      <div class="card h-50 w-75 mt-5" style="background-color: #ffa62b; color: #ffffff">
-        <div class="card-body cb" >
-          <p class="card-text"><strong>Medium </strong>
-            <a  [href]="contacts.medium" target="_blank"> <i class="bi bi-medium"></i></a></p>
+      <div class="contact-card medium-card">
+        <div class="card-icon">
+          <i class="bi bi-medium"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="contact-label">Medium</h3>
+          <p class="contact-value">Articles & Blogs</p>
+          <a [href]="contacts.medium" target="_blank" class="contact-link">
+            <span>Read Articles</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </div>
     </div>
   </div>
 </div>
-

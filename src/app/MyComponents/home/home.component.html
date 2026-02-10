@@ -1,30 +1,51 @@
 <div class="main-con" style="background-color: #023047">
-  <div class="container-lg text-center shadow-lg justify-content-center" style=" border-radius: 10px">
-    <div class="row">
-      <div class="col-lg-6 col-12">
-        <h2 class="mt-5" style="font-family: 'Playwite', cursive; color: #ffb703; font-size: 30px">Hello Everyone!</h2>
-        <p style="font-family: 'Kalam', cursive; color: #ffb703; font-size: 20px;
-          line-height: 1.5rem"
-        >{{profile.introduction}}</p>
-      </div>
-      <div class="col-lg-6 col-12">
-        <img ngSrc="assets/images/myNewImg.png" priority class="img-fluid mt-5" alt="my image" height="280" width="280">
-      </div>
-      <div style="color: #ffb703">
-        <h2 class="mt-3" STYLE="font-family: Playwite, cursive">SKILLS</h2>
-        <div class="row">
-          <div class="col justify-content-center">
-            <p style="font-family: 'Kalam', cursive; font-size: 20px; line-height: 2rem">
-              {{profile.skills}}
-            </p>
+  <div class="container-lg text-center shadow-lg home-container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-12">
+        <div class="content-wrapper">
+          <div class="row align-items-center mb-4">
+            <div class="col-lg-6 col-12 intro-section">
+              <h2 class="mt-5 greeting-title">Hello Everyone!</h2>
+              <p class="intro-text">{{profile.introduction}}</p>
+            </div>
+            <div class="col-lg-6 col-12 image-section">
+              <div class="image-container">
+                <picture>
+                  <source srcset="assets/images/myImage.webp" type="image/webp">
+                  <img ngSrc="assets/images/myNewImg.png" class="profile-image" alt="my image" height="280" width="280" loading="lazy">
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-12 skills-section">
+              <h2 class="section-title">Skills</h2>
+              <div class="row justify-content-center">
+                <div class="col-lg-10 col-12">
+                  <div class="skills-container">
+                    <p class="skills-text">{{profile.skills}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-12 resume-section">
+              <h2 class="resume-title">Resume</h2>
+              <div class="cv-buttons-container">
+                <button class="cv-button download-btn" id="download-button" (click)="downloadCV()">
+                  <i class="bi bi-download me-2"></i>Download
+                </button>
+                <button class="cv-button view-btn" id="view-button" (click)="openCV()">
+                  <i class="bi bi-eye me-2"></i>View Now
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <h2 class="mt-5" style="font-family:  'Script MT Bold', serif; color: #ffb703; font-size: 40px">Resume</h2>
-      <div id="cv-buttons" class="mb-4">
-        <button class="m-lg-2" id="download-button" (click)="downloadCV()">Download</button>
-        <button class="m-lg-2" id="view-button" (click)="openCV()">View Now</button>
-      </div>
     </div>
   </div>
-  </div>
+</div>

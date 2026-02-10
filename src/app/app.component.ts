@@ -33,6 +33,7 @@ import {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, AfterViewInit{
+
   profile: Profile = new Profile();
   contact: Contact = new Contact();
   educations: Education[] = [];
@@ -43,6 +44,8 @@ export class AppComponent implements OnInit, AfterViewInit{
   isChatOpen: boolean = false;
   userId: string = '';
   chatId: string = '';
+  isChatLoading= false;
+  hasNewMessage: boolean = true;
 
 
   constructor(private elementRef: ElementRef, private dataService: DataServiceService,
@@ -59,68 +62,65 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    // use static data
+    this.dataService.getProfile().subscribe({
+      next: value => {
+        this.profile = value.body;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
 
-    this.profile = staticProfile;
-    this.educations = staticEducations;
-    this.projects = staticProjects;
-    this.contact = staticContacts;
-    this.experiences = staticExperiences;
+    this.dataService.getEducation().subscribe({
+      next: response => {
+        this.educations = response.body;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
 
-    // this.dataService.getProfile().subscribe({
-    //   next: value => {
-    //     this.profile = value.body;
-    //   },
-    //   error: err => {
-    //     console.log(err);
-    //   }
-    // });
-    //
-    // this.dataService.getEducation().subscribe({
-    //   next: response => {
-    //     this.educations = response.body;
-    //   },
-    //   error: err => {
-    //     console.log(err);
-    //   }
-    // });
-    //
-    // this.dataService.getContacts().subscribe({
-    //   next: response => {
-    //     this.contact = response.body;
-    //   },
-    //   error: err => {
-    //     console.log(err);
-    //   }
-    // });
-    //
-    // this.dataService.getProjects().subscribe({
-    //   next: response => {
-    //     this.projects = response.body;
-    //   },
-    //   error: err => {
-    //     console.log(err);
-    //   }
-    // });
-    //
-    // this.dataService.getExperience().subscribe({
-    //   next: response => {
-    //     this.experiences = response.body;
-    //   },
-    //   error: err => {
-    //     console.log(err);
-    //   }
-    // });
-    //
-    // this.chatService.userId$.subscribe(id => {
-    //   this.userId = id;
-    // });
-    // this.chatService.chatId$.subscribe(id => {
-    //   this.chatId = id;
-    // })
+    this.dataService.getContacts().subscribe({
+      next: response => {
+        this.contact = response.body;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+
+    this.dataService.getProjects().subscribe({
+      next: response => {
+        this.projects = response.body;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+
+    this.dataService.getExperience().subscribe({
+      next: response => {
+        this.experiences = response.body;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+
+    this.chatService.userId$.subscribe(id => {
+      this.userId = id;
+    });
+    this.chatService.chatId$.subscribe(id => {
+      this.chatId = id;
+    })
   }
 
   startChat() {
+    this.isChatLoading = true;
+    setTimeout( () => {
+      this.isChatLoading = false;
+      this.hasNewMessage = false;
+    }, 500)
     if (this.userId === null || this.userId === ''
      || this.chatId === null || this.chatId === '') {
       const dialogRef

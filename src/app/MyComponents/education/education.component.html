@@ -1,15 +1,43 @@
-<div class="main-con" style="background-color: #023047">
-  <div class="container shadow text-center justify-content-center align-items-center">
-    <div *ngFor="let edu of educations" class="card data" style="margin: 2vw 10vw">
-      <div class="card-header">
-        <h1 style="font-family: Playwite, cursive">{{edu.level}}</h1>
-      </div>
-      <div class="card-body">
-        <p class="card-title">{{edu.degree}}</p>
-        <p class="card-text">Stream: {{edu.stream}}</p>
-        <p class="card-text">Year of Passing: {{edu.yearOfPassing}}</p>
-        <p class="card-text">CGPA/Percentage: {{edu.cgpaOrPercentage}}</p>
-        <p class="card-text">Institute: {{edu.institute}}</p>
+<div class="main-con">
+  <div class="container">
+
+    <div class="cards-container">
+      <div *ngFor="let edu of educations; let i = index"
+           class="education-card"
+           [style.animation-delay]="(i * 0.2) + 's'">
+
+        <div class="card-header-section">
+          <div class="level-badge">
+            <h3 class="level-title">{{ edu.level }}</h3>
+          </div>
+          <div class="degree-info">
+            <span class="degree-name">{{ edu.degree }}</span>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="info-label">Stream</span>
+              <span class="info-value">{{ edu.stream }}</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-label">Year of Passing</span>
+              <span class="info-value">{{ edu.yearOfPassing }}</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-label">CGPA/Percentage</span>
+              <span class="info-value grade-highlight">{{ edu.cgpaOrPercentage }}</span>
+            </div>
+          </div>
+
+          <div class="institute-section">
+            <span class="section-label">Institute</span>
+            <p class="institute-name">{{ edu.institute }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

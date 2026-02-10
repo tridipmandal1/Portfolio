@@ -1,35 +1,73 @@
 <div class="main-con" style="background-color: #023047">
   <div class="container shadow-lg text-center justify-content-center align-items-center">
-    <div class="filter mt-5">
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-      <mat-button-toggle value="All Projects" (click)="toggleFilter('ALL')">All Projects</mat-button-toggle>
-      <mat-button-toggle value="Software Projects" (click)="toggleFilter('SOFTWARE')">Software Projects</mat-button-toggle>
-      <mat-button-toggle value="Hardware Projects" (click)="toggleFilter('HARDWARE')">Hardware Projects</mat-button-toggle>
-    </mat-button-toggle-group>
+    <div class="filter-section mt-5">
+      <div class="filter-container">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="custom-toggle-group">
+          <mat-button-toggle value="All Projects" (click)="toggleFilter('ALL')" class="custom-toggle">
+            <i class="bi bi-collection me-2"></i>All Projects
+          </mat-button-toggle>
+          <mat-button-toggle value="Software Projects" (click)="toggleFilter('SOFTWARE')" class="custom-toggle">
+            <i class="bi bi-code-slash me-2"></i>Software Projects
+          </mat-button-toggle>
+          <mat-button-toggle value="Hardware Projects" (click)="toggleFilter('HARDWARE')" class="custom-toggle">
+            <i class="bi bi-cpu me-2"></i>Hardware Projects
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
     </div>
-<div class="results mt-5 container-fluid ">
-  <div class="row align-items-center justify-content-center">
-    <div class="card mt-5 w-75 h-25" *ngFor="let project of filteredProjects">
-      <div class="card-header">
-        <div class="row">
-          <div class="col-8 fs-3"><p>{{project.title}}</p> </div>
-          <div class="col-4">
-            <div class="row">
-              <div class="col-lg-6 col-12"><a [href]="project.githubLink" target="_blank"><i class="bi bi-github fs-4"></i></a></div>
-              <div *ngIf="project.category === 'SOFTWARE'"
-                class="col-lg-6 col-12"><a [href]="project.hostedLink"><i class="bi bi-globe2 fs-4"></i></a></div>
-              <div *ngIf="project.category === 'HARDWARE'"
-                class="col-lg-6 col-12"><a [href]="project.images"><i class="bi bi-images fs-4"></i></a></div>
+
+    <div class="results mt-5 container-fluid">
+      <div class="row align-items-center justify-content-center">
+        <div class="project-card" *ngFor="let project of filteredProjects; let i = index"
+             [style.animation-delay]="i * 0.1 + 's'">
+          <div class="card-content">
+            <div class="card-header-custom">
+              <div class="project-title-section">
+                <div class="project-category-badge"
+                     [class.software-badge]="project.category === 'SOFTWARE'"
+                     [class.hardware-badge]="project.category === 'HARDWARE'">
+                  {{project.category}}
+                </div>
+                <h3 class="project-title">{{project.title}}</h3>
+              </div>
+              <div class="project-links">
+                <a [href]="project.githubLink" target="_blank" class="project-link github-link"
+                   title="View on GitHub">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a *ngIf="project.category === 'SOFTWARE'" [href]="project.hostedLink"
+                   class="project-link live-link" title="View Live Demo">
+                  <i class="bi bi-globe2"></i>
+                </a>
+                <a *ngIf="project.category === 'HARDWARE'" [href]="project.images"
+                   class="project-link images-link" title="View Images">
+                  <i class="bi bi-images"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="card-body-custom">
+              <div class="tech-stack-section">
+                <div class="section-label">
+                  <i class="bi bi-tools me-2"></i>Tech Stack
+                </div>
+                <div class="tech-tags">
+                  <span class="tech-tag" *ngFor="let tech of project.technologies.split(',')">
+                    {{tech.trim()}}
+                  </span>
+                </div>
+              </div>
+
+              <div class="description-section">
+                <div class="section-label">
+                  <i class="bi bi-info-circle me-2"></i>Description
+                </div>
+                <p class="project-description">{{project.description}}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-text"><strong>Tech Stack:</strong> {{project.technologies}}</p>
-        <p class="card-text"><strong>Description:</strong> {{project.description}}</p>
-      </div>
     </div>
-  </div>
-</div>
   </div>
 </div>

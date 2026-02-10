@@ -1,18 +1,47 @@
-<div class="main-con" style="background-color: #023047">
-  <div class="container shadow-lg text-center justify-content-center align-items-center">
+<div class="main-con">
+  <div class="container">
     <div class="row justify-content-center">
-      <div *ngFor="let exp of experience"
-        class="card h-50 w-75 mt-5 rounded-4" style="background-color: #0f4c5c; color: #fdf0d5">
-        <div class="card-body">
-          <p class="card-title fs-4"><strong>Position: </strong>{{ exp.position }}</p>
-          <p class="card-text"><strong>Company: </strong> {{exp.company}}</p>
-          <p class="card-text"><strong>Duration: </strong> {{exp.duration}}</p>
-          <p class="card-text"><strong>Location: </strong> {{exp.location}}</p>
-          <p class="card-text"><strong>Responsibilities: </strong> {{exp.responsibilities}}</p>
-          <p class="card-text"><strong>Technologies: </strong> {{exp.technologies}}</p>
-          <p class="card-text" ><strong>Outcomes: </strong>{{exp.outcomes}}</p>
+      <div class="col-12 text-center mb-5">
+      </div>
+      <div *ngFor="let exp of experience; let i = index"
+           class="col-lg-10 col-xl-8 mb-4">
+        <div class="experience-card" [style.animation-delay]="i * 0.1 + 's'">
+          <div class="card-header">
+            <div class="position-info">
+              <h3 class="position-title">{{ exp.position }}</h3>
+              <div class="company-duration">
+                <span class="company-name">{{ exp.company }}</span>
+                <span class="duration-badge">{{ exp.duration }}</span>
+              </div>
+              <p class="location">
+                <i class="location-icon">📍</i>
+                {{ exp.location }}
+              </p>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <div class="info-section">
+              <h4 class="section-label">Key Responsibilities</h4>
+              <p class="section-content">{{ exp.responsibilities }}</p>
+            </div>
+
+            <div class="info-section">
+              <h4 class="section-label">Technologies & Tools</h4>
+              <div class="tech-tags">
+                <span *ngFor="let tech of exp.technologies?.split(',')" class="tech-tag">
+                  {{ tech.trim() }}
+                </span>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h4 class="section-label">Outcomes</h4>
+              <p class="section-content outcomes">{{ exp.outcomes }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 </div>
