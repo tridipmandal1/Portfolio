@@ -1,0 +1,27 @@
+@if (alertService.alertState(); as alert) {
+    <div class="fixed top-24 right-4 sm:right-6 lg:right-8 z-[100] w-full max-w-sm animate-fade-in-right">
+        <div
+                [class]="alert.type === 'success' ? 'bg-emerald-50 border-emerald-500 text-emerald-800 dark:bg-emerald-900/50 dark:border-emerald-700 dark:text-emerald-200' : 'bg-red-50 border-red-500 text-red-800 dark:bg-red-900/50 dark:border-red-700 dark:text-red-200'"
+                class="relative flex items-start gap-4 p-4 rounded-lg border shadow-lg"
+                role="alert">
+            <div class="flex-shrink-0">
+                @if (alert.type === 'success') {
+                    <span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400">check_circle</span>
+                } @else {
+                    <span class="material-symbols-outlined text-red-600 dark:text-red-400">error</span>
+                }
+            </div>
+            <div class="flex-1">
+                <p class="font-semibold">
+                    {{ alert.type === 'success' ? 'Success' : 'Error' }}
+                </p>
+                <p class="text-sm">
+                    {{ alert.message }}
+                </p>
+            </div>
+            <button (click)="alertService.clear()" class="absolute top-2 right-2 p-1 rounded-full hover:bg-black/10 transition-colors" aria-label="Close">
+                <span class="material-symbols-outlined text-base">close</span>
+            </button>
+        </div>
+    </div>
+}
