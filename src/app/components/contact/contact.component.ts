@@ -42,6 +42,26 @@ export class ContactComponent {
         message: ['', Validators.required]
     });
 
+    onSubmit() {
+        if (this.contactForm.invalid) return;
+
+        const formData = new FormData();
+        formData.append("form-name", "contact");
+
+        Object.keys(this.contactForm.value).forEach(key=> {
+            // @ts-ignore
+            formData.append(key, this.contactForm.value[key]);
+        });
+
+        fetch("/", {
+            method: "POST",
+            body: formData
+        })
+            .then(() => alert("Message sent successfully!"))
+            .catch(error => alert("Error sending message"));
+    }
+
+
     socials = [
         {
             name: 'Email',

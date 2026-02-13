@@ -95,9 +95,17 @@
           }
         }
     </script>
-    <link rel="stylesheet" href="/styles.css">
+
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="subject" />
+    <textarea name="message"></textarea>
+</form>
+
 <app-root></app-root>
 </body>
 </html>
