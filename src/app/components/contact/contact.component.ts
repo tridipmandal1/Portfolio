@@ -1,5 +1,6 @@
-import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
-import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
+import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-contact',
@@ -16,9 +17,19 @@ import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 })
 export class ContactComponent {
 
+    private alertService = inject(AlertService);
+    contactForm: FormGroup;
+
     copiedHandle = signal<string | null>(null);
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: FormBuilder) {
+        this.contactForm = this.fb.group({
+            name: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            subject: ['', Validators.required],
+            message: ['', Validators.required]
+        });
+    }
 
     copyToClipboard(handle: string, event: MouseEvent) {
         event.preventDefault();
@@ -35,30 +46,35 @@ export class ContactComponent {
         });
     }
 
-    contactForm = this.fb.group({
-        name: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
-        subject: ['', Validators.required],
-        message: ['', Validators.required]
-    });
-
     onSubmit() {
-        if (this.contactForm.invalid) return;
+        if (this.contactForm.invalid) {
+            this.alertService.showError("Please fill out all required fields correctly.");
+            return;
+        }
 
         const formData = new FormData();
         formData.append("form-name", "contact");
 
-        Object.keys(this.contactForm.value).forEach(key=> {
-            // @ts-ignore
-            formData.append(key, this.contactForm.value[key]);
+        const formValue = this.contactForm.value;
+        Object.keys(formValue).forEach(key => {
+            const controlName = key as keyof typeof formValue;
+            const value = formValue[controlName];
+            if (value) {
+                formData.append(key, value);
+            }
         });
-
         fetch("/", {
             method: "POST",
             body: formData
         })
-            .then(() => alert("Message sent successfully!"))
-            .catch(error => alert("Error sending message"));
+            .then(() => {
+                this.alertService.showSuccess("Message sent successfully! I'll get back to you soon.");
+                this.contactForm.reset();
+            })
+            .catch(error => {
+                this.alertService.showError("Sorry, there was an error sending your message. Please try again later.");
+                console.error('Form submission error:', error);
+            });
     }
 
 
@@ -75,7 +91,7 @@ export class ContactComponent {
         },
         {
             name: 'GitHub',
-            handle: 'Tridip Mandal',
+            handle: 'tridipmandal1',
             url: 'https://github.com/tridipmandal1',
         },
         {
