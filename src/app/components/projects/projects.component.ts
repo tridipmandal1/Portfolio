@@ -52,6 +52,19 @@ export class ProjectsComponent {
             imageUrl: '../assets/images/know-calorie-thumb.png',
             tags: ['Python', 'TensorFlow', 'Deep Learning', 'Nutrition'],
             githubUrl:'https://github.com/tridipmandal1/Know-Calorie'
+        },
+        {
+            title: 'LiveDict - A high performance cache library for Java',
+            points: [
+                'High-Performance In-Memory Cache with TTL expiration, reactive event system (ON_SET, ON_EXPIRE, ON_DELETE), and lock-free concurrent operations using ConcurrentHashMap, achieving sub-microsecond get/set latency at 1M+ ops/sec.',
+                'Pluggable Persistence Layer supporting SQLite and Redis backends with configurable write-through and write-behind modes; implements batched writes, automatic expiry cleanup, and crash recovery with zero data loss guarantees.',
+                'Production-Grade Concurrency featuring per-key fine-grained locking, async event dispatching with configurable thread pools, atomic expiry handling preventing duplicate events, and comprehensive thread-safety testing under high contention.',
+                'Hybrid Eviction Strategy combining LRU (capacity-based) + TTL (time-based) policies with configurable thresholds, lazy eviction on access, and background reaper thread; enables fine-tuned memory control with ON_EVICT events triggering cache warming, metrics collection, and synchronized distributed invalidation across clustered nodes.',
+                'Enterprise Features including lazy expiration with background reaper threads, configurable cleanup intervals, graceful shutdown with pending write flush, and extensive logging for observability in distributed systems.'
+            ],
+            imageUrl: '../assets/images/',
+            tags: ['Core-Java', 'Concurrency', 'Library', 'Caching'],
+            githubUrl:'https://github.com/tridipmandal1/livedict-java'
         }
     ]
 
